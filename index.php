@@ -65,7 +65,12 @@
         <!--end checkbox input wrapper-->
         <select class="form-select mb-3" name="vote">
           <?php for ($i=0; $i < 6; $i++) { ?>
-            <option <?= $filterVote == $i ? 'selected' : '' ?> value="<?=$i?>"><?= $i > 0 && $i < 5 ? 'voto uguale o superiore a '.$i : ($i == 5 ? 'voto uguale a '.$i : 'voto'); ?></option>
+            <option 
+              <?= $filterVote == $i ? 'selected' : '' ?>
+              value="<?=$i?>"
+            >
+              <?= $i > 0 && $i < 5 ? 'voto uguale o superiore a '.$i : ($i == 5 ? 'voto uguale a '.$i : 'voto'); ?>
+            </option>
           <?php 
             }
           ?>
@@ -97,7 +102,7 @@
                 foreach ($hotel as $key => $data) { 
               ?>
               <?php 
-                if (($hotel['parking'] == $filterParcking || $filterParcking == false) && $hotel['vote'] > $filterVote ) {
+                if (($hotel['parking'] == $filterParcking || $filterParcking == false) && $hotel['vote'] >= $filterVote ) {
               ?>
                   
                   <td>

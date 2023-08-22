@@ -58,18 +58,20 @@
     <div class="container">
       <h1 class="text-center mt-5">Hotel</h1>
       <form action="<?=$_SERVER['PHP_SELF']?>" method="get">
-          <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="parcking" name="parcking" <?= $filterParcking ? 'checked' : '' ?> >
-            <label class="form-check-label" for="parcking">Hotel con parcheggio</label>
-          </div>
-          <select class="form-select mb-3" name="vote">
-            <option <?= $filterVote == 0 ? 'selected' : '' ?> value="0">voto</option>
-            <option <?= $filterVote == 1 ? 'selected' : '' ?> value="1">voto uguale o superiore 1 </option>
-            <option <?= $filterVote == 2 ? 'selected' : '' ?> value="2">voto uguale o superiore 2</option>
-            <option <?= $filterVote == 3 ? 'selected' : '' ?> value="3">voto uguale o superiore 3</option>
-            <option <?= $filterVote == 4 ? 'selected' : '' ?> value="4">voto uguale o superiore 4</option>
-            <option <?= $filterVote == 5 ? 'selected' : '' ?> value="5">voto uguale a 5</option>
-          </select>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="parcking" name="parcking" <?= $filterParcking ? 'checked' : '' ?> >
+          <label class="form-check-label" for="parcking">Hotel con parcheggio</label>
+        </div>
+        <!--end checkbox input wrapper-->
+        <select class="form-select mb-3" name="vote">
+          <option <?= $filterVote == 0 ? 'selected' : '' ?> value="0">voto</option>
+          <option <?= $filterVote == 1 ? 'selected' : '' ?> value="1">voto uguale o superiore 1 </option>
+          <option <?= $filterVote == 2 ? 'selected' : '' ?> value="2">voto uguale o superiore 2</option>
+          <option <?= $filterVote == 3 ? 'selected' : '' ?> value="3">voto uguale o superiore 3</option>
+          <option <?= $filterVote == 4 ? 'selected' : '' ?> value="4">voto uguale o superiore 4</option>
+          <option <?= $filterVote == 5 ? 'selected' : '' ?> value="5">voto uguale a 5</option>
+        </select>
+        <!--end select -->
         <button type="submit" class="btn btn-primary">Filtra</button>
       </form>
       <!--end filter form-->

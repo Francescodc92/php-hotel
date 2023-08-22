@@ -64,12 +64,11 @@
         </div>
         <!--end checkbox input wrapper-->
         <select class="form-select mb-3" name="vote">
-          <option <?= $filterVote == 0 ? 'selected' : '' ?> value="0">voto</option>
-          <option <?= $filterVote == 1 ? 'selected' : '' ?> value="1">voto uguale o superiore 1 </option>
-          <option <?= $filterVote == 2 ? 'selected' : '' ?> value="2">voto uguale o superiore 2</option>
-          <option <?= $filterVote == 3 ? 'selected' : '' ?> value="3">voto uguale o superiore 3</option>
-          <option <?= $filterVote == 4 ? 'selected' : '' ?> value="4">voto uguale o superiore 4</option>
-          <option <?= $filterVote == 5 ? 'selected' : '' ?> value="5">voto uguale a 5</option>
+          <?php for ($i=0; $i < 6; $i++) { ?>
+            <option <?= $filterVote == $i ? 'selected' : '' ?> value="<?=$i?>"><?= $i > 0 && $i < 5 ? 'voto uguale o superiore a '.$i : ($i == 5 ? 'voto uguale a '.$i : 'voto'); ?></option>
+          <?php 
+            }
+          ?>
         </select>
         <!--end select -->
         <button type="submit" class="btn btn-primary">Filtra</button>

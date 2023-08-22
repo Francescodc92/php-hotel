@@ -53,12 +53,14 @@
     <?php 
       foreach ($hotels as $hotel) { 
     ?>
-     <?php  
-        foreach ($hotel as $key => $data) { ?>
-        <p><?= $key.': '.$data  ?></p>
-      <?php  
-        } 
-      ?>
+      <div>
+        <?php  
+          foreach ($hotel as $key => $data) { ?>
+            <p><?= $key.': '.$data  ?></p>
+            <?php  
+          } 
+        ?>
+      </div>
     <?php
       }
     ?>

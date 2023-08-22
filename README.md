@@ -1,5 +1,7 @@
 > Esercizio PHP Badwords
 
+![preview](./.github/preview.png)
+
 ## PHP Hotel
 
 - DESCRIZIONE:

@@ -3,3 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+form{
+  max-width: 400px;
+  border: 1px solid #ccc;
+  margin: 20px auto;
+  padding: 30px;
+  border-radius: 10px;
+}

@@ -38,6 +38,8 @@
       ],
 
   ];
+  $filterParcking = (($_GET['parcking'] ?? 'off') == 'on') ? true : false;
+  
 ?>
 
 <!DOCTYPE html>
@@ -55,6 +57,13 @@
 <body class="index-body">
     <div class="container">
       <h1 class="text-center mt-5">Hotel</h1>
+      <form action="<?=$_SERVER['PHP_SELF']?>" method="get">
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="parcking" name="parcking" <?= $filterParcking ? 'checked' : '' ?> >
+          <label class="form-check-label" for="parcking">Hotel con parcheggio</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Filtra</button>
+      </form>
 
       <table class="table table-bordered mt-5">
         <thead>
@@ -77,31 +86,37 @@
             <?php 
               foreach ($hotel as $key => $data) { 
             ?>
-              <td>
-                <?php 
-                  if ($data == 1 && $key == 'parking') {
+            <?php 
+              if ($hotel['parking'] == $filterParcking || $filterParcking == false) {?>
                 
-                    echo "Si" ;
-                
-                  }elseif($data == "" && $key == 'parking') {
+                <td>
+                  <?php 
+                    if ($data == 1 && $key == 'parking') {
                   
-                    echo "No";
+                      echo "Si" ;
                   
-                  }elseif($key == 'distance_to_center'){
-
-                    echo '<strong>'.$data.'</strong> km';
+                    }elseif($data == "" && $key == 'parking') {
+                    
+                      echo "No";
+                    
+                    }elseif($key == 'distance_to_center'){
+  
+                      echo '<strong>'.$data.'</strong> km';
+                    
+                    }elseif($key == 'name'){
                   
-                  }elseif($key == 'name'){
-                
-                    echo '<strong class="text-danger">'.$data.'</strong>';
-                
-                  }else{
-                
-                    echo $data;
-                
-                  }
-                ?>
-              </td>
+                      echo '<strong class="text-danger">'.$data.'</strong>';
+                  
+                    }else{
+                  
+                      echo $data;
+                  
+                    }
+                  ?>
+                </td>
+            <?php
+              }
+            ?>
             <?php
               }
             ?>
@@ -110,9 +125,11 @@
           }
         ?>
         </tbody>
-      </table>
-    
-
+      </table>   
+      <?php 
+        var_dump($filterParcking)
+      ?>
     </div>
 </body>
 </html>
+

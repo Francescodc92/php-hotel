@@ -107,11 +107,11 @@
                   
                   <td>
                     <?php 
-                      if ($data == 1 && $key == 'parking') {
+                      if ($data == true && $key == 'parking') {
                     
                         echo "Si" ;
                     
-                      }elseif($data == "" && $key == 'parking') {
+                      }elseif($data == false && $key == 'parking') {
                       
                         echo "No";
                       
